@@ -99,7 +99,7 @@ class Life(object):
         while userInput[0].lower() not in validCommands:
             userInput = input('Command: ')
             if userInput == '':
-                userInput = 'n'
+                userInput = 'r'
                 parameter = 1
         command = commands[userInput[0].lower()]
         if len(userInput) > 1:
@@ -115,7 +115,7 @@ class Life(object):
         columns = self.__world.get_columns()
         percentAlive = (self.__world.get_living_cell_count() / (rows * columns)) * 100
         string = 'Status:   '
-        string += f'gen:{self.__world.get_generation()}   '
+        string += f'gen: {self.__world.get_generation()}   '
         string += f'speed: {self.__speed}   '
         string += f'size:[{rows}x{columns}]   '
         string += f'alive: {percentAlive:0.0f}%   '

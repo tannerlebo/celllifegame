@@ -30,6 +30,7 @@ class World(object):
         self.__grid = self.create_grid()
         self.__livingCellCount = 0
         self.__currentGeo = 'bowl'
+        self.__generation = 0
         self.create_neighbors()
         self.__timeline = []
 
@@ -200,6 +201,7 @@ class World(object):
                         newGrid[cell.get_row()][cell.get_column()].set_living(True)
                         self.__livingCellCount += 1
         self.__grid = newGrid
+        self.__generation += 1
         self.create_neighbors()
 
     def randomize(self, percent):
@@ -367,7 +369,7 @@ class World(object):
                         self.__livingCellCount += 1
         self.__grid = newGrid
         self.create_neighbors()
-        #self._generation += 1
+        self.__generation += 1
         #todo Make sure I add the basic display string.
         self.__timeline.append(self.__str__())
 
@@ -415,4 +417,4 @@ class World(object):
         return self.__columns
 
     def get_generation(self):
-        return self.get_generation
+        return self.__generation
